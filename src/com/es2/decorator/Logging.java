@@ -10,6 +10,6 @@ public class Logging extends Decorator implements AuthInterface{
 
     public void auth(String username, String password) throws AuthException, IOException{
         System.out.println(System.currentTimeMillis() + ", auth()");
-        this.auth(username, password);
+        super.auth(username, password);
     }
 }
