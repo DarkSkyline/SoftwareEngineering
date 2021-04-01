@@ -1,25 +1,24 @@
 package com.es2.memento;
 
+import java.util.ArrayList;
+
 public class BackupService extends Object {
-    Server server;
+    private Server server;
+    private ArrayList<Memento> serverSnapshots = new ArrayList<>();
 
     public BackupService(Server server) {
         this.server = server;
     }
 
     public void restoreSnapshot(int snapshotNumber) throws NotExistingSnapshotException {
-
-        try {
-            if(snapshotNumber < 1) {
-                throw new NotExistingSnapshotException();
-            }
-        } catch (NotExistingSnapshotException e) {
-            System.out.println("Snapshot doesn't exist!");
+        if (snapshotNumber < 0 || snapshotNumber > this.serverSnapshots.size() - 1) {
+            throw new NotExistingSnapshotException();
         }
 
+        this.server.restore(this.serverSnapshots.get(snapshotNumber));
     }
 
     public void takeSnapshot() {
-        System.out.println("Snapshot created");
+        this.serverSnapshots.add(server.backup());
     }
 }

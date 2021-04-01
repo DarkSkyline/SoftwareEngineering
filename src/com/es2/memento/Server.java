@@ -3,7 +3,7 @@ package com.es2.memento;
 import java.util.ArrayList;
 
 public class Server extends Object {
-    public ArrayList<String> studendList = new ArrayList<>();
+    public ArrayList<String> studentList = new ArrayList<>();
 
     public Server() { }
 
@@ -11,24 +11,24 @@ public class Server extends Object {
     * Adds a new student name
     */
     public void addStudent(String studentName) throws ExistingStudentException {
-        this.studendList.add(studentName);
+        if(this.studentList.contains(studentName))
+            throw new ExistingStudentException();
+        this.studentList.add(studentName);
     }
 
     /* Backups the server state to a Memento object */
     public Memento backup() {
-       Memento backupMemento =  new Memento(this.studendList);
-       return backupMemento;
+       return new Memento(this.studentList);
     }
 
     /* Return the student names */
     public ArrayList<String> getStudentNames(){
-        return this.studendList;
+        return this.studentList;
     }
 
     /* Restores a previous server state */
     public void restore(Memento state) {
-       ArrayList<String> backupList = state.getState();
-       studendList = backupList;
+       this.studentList = state.getState();
        System.out.println("List has been restored");
     }
 }
