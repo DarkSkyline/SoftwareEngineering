@@ -1,5 +1,5 @@
-package com.es2.singleton;
-
+import com.es2.singleton.End;
+import com.es2.singleton.Registry;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.lang.reflect.Modifier;
@@ -20,32 +20,32 @@ public class TestSingleton {
 
     @Test
     @DisplayName("Test Set Path")
-    public void testSetPath() {
-        Registry.getInstance().setPath("");
+    public void testPath() {
+        Registry.getInstance().setPath("test");
         String path = Registry.getInstance().getPath();
-        assertEquals("", path);
+        assertEquals("test", path);
     }
 
     @Test
     @DisplayName("Test Set Connection String")
-    public void test_setConnectionString() {
-        Registry.getInstance().setConnectionString("");
+    public void testConnectionStringNull() {
+        Registry.getInstance().setConnectionString(null);
         String connString = Registry.getInstance().getConnectionString();
-        assertEquals("", connString);
+        assertEquals(null, connString);
     }
 
     @Test
-    public void test_setPathParams() {
-        Registry.getInstance().setPath("");
+    public void testPathNull() {
+        Registry.getInstance().setPath(null);
         String path = Registry.getInstance().getPath();
-        assertEquals("", path);
+        assertEquals(null, path);
     }
 
     @Test
-    public void test_setConnectionStringParams() {
-        Registry.getInstance().setConnectionString("");
+    public void testConnectionString() {
+        Registry.getInstance().setConnectionString("test");
         String connString = Registry.getInstance().getConnectionString();
-        assertEquals("", connString);
+        assertEquals("test", connString);
     }
 
     @Test
