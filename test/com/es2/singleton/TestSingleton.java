@@ -1,17 +1,20 @@
 package com.es2.singleton;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.*;
 
 import static org.junit.Assert.*;
 import java.lang.reflect.Modifier;
+import java.util.HashMap;
 
-public class RegistryTest {
+public class TestSingleton {
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeAll
+    public static void setUpBeforeAllTests(){
+    }
+
+    @BeforeEach
+    public void setUp(){
+        HashMap h = new HashMap();
     }
 
     @AfterAll
