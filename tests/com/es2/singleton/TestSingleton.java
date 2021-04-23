@@ -1,21 +1,17 @@
 package com.es2.singleton;
 
 import org.junit.jupiter.api.*;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import java.lang.reflect.Modifier;
-import java.util.HashMap;
 
 public class TestSingleton {
 
     @BeforeAll
-    public static void setUpBeforeAllTests(){
+    public static void setUpBeforeAllTests() {
     }
 
     @BeforeEach
-    public void setUp(){
-        HashMap h = new HashMap();
-    }
+    public void setUp(){}
 
     @AfterAll
     static void tearDown() {
@@ -23,17 +19,19 @@ public class TestSingleton {
     }
 
     @Test
-    public void test_setPath() {
-        Registry.getInstance().setPath("test");
+    @DisplayName("Test Set Path")
+    public void testSetPath() {
+        Registry.getInstance().setPath("");
         String path = Registry.getInstance().getPath();
-        assertEquals("test", path);
+        assertEquals("", path);
     }
 
     @Test
+    @DisplayName("Test Set Connection String")
     public void test_setConnectionString() {
-        Registry.getInstance().setConnectionString("test");
+        Registry.getInstance().setConnectionString("");
         String connString = Registry.getInstance().getConnectionString();
-        assertEquals("test", connString);
+        assertEquals("", connString);
     }
 
     @Test
