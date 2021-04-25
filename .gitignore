@@ -1,6 +1,5 @@
 # Project exclude paths
 /out/
-SoftwareEngineering.iml
 ./idea
 ./out/
 /.idea/misc.xml
